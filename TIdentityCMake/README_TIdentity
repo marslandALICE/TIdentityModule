@@ -1,0 +1,53 @@
+How to Run TIdentity:
+
+1) Download TIdentity module
+   git clone
+
+2) Set TIdentity enviroment by adding the following line into your ~/.bashrc
+   export TIdentityDIR=/Users/marsland/Desktop/TIdentityCMake
+
+3) Compile TIdentity code
+   cd $TIdentityDIR
+   ./cmakeTIdentity.sh
+   * executables are created in $TIdentityDIR/bin
+
+4) Run the code for both options
+
+   a) Running separate (1 or -1) or sum (0) of charges
+   $TIdentityDIR/bin/testIdentity_Sign   <dataTree_path>   <$lineShapes_path>   <sign[0,1.-1]>
+   E.g.
+      $TIdentityDIR/bin/testIdentity_Sign  $TIdentityDIR/test/inputFiles_root6/DataTree_Sign.root $TIdentityDIR/test/inputFiles_root6/LineShapes_Sign.root 0
+
+   b) Running particles and anti-particles simultaneously
+      $TIdentityDIR/bin/testIdentityNet_particles   $TIdentityDIR/test/inputFiles_root6/DataTree_Net.root   $TIdentityDIR/test/inputFiles_root6/LineShapes_Net.root
+
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+
+Further instructions about the input files
+
+Input tree structure:
+
+  --> Name of the tree must be given:
+      TString treeIdentity = "tracks";
+
+  --> 4 branches are internally fixed:
+      ULong64_t gid  // uniquie event index
+      Float dEdx     // identity variable
+      UInt_t cutBit  // variable for the track selection
+      Int_t sign     // charge of the particles
+
+  --> Furher track information such as momentum, rapidity etc can be defined
+      Double_t fTreeVariablesArray[6];                         // 4 default and + 2 extra branch
+      const Int_t nBranches = 2;                               // number of extra branches
+      TString branchNames[nBranches]={"momentum","rapidity"};  // names of the extra branches
+
+Input LineShapes:
+
+  --> objects are stored in a TClonesArray:
+      TString lookUpCloneArrayName = "funcLineShapesCArr";
+
+  --> Naming of the lineshape of a given particle and a given phase space bin
+      particle_<particle index>_bin_<phase space bin in addition to default branches>
+      E.g. particle_2_bin_2 --> particle_<pion>_bin_<sign=1>
