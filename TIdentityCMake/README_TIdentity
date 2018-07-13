@@ -3,7 +3,7 @@ How to Run TIdentity:
 1) Download TIdentity module
    git clone https://github.com/marslandALICE/TIdentityModule.git
 
-2) Set TIdentity enviroment by adding the following line into your ~/.bashrc
+2) Set TIdentity environment by adding the following line into your ~/.bashrc
    export TIdentityDIR=/Users/marsland/Desktop/TIdentityCMake
 
 3) Compile TIdentity code
@@ -29,7 +29,7 @@ Further instructions about the input files
 
 Input tree structure:
 
-  --> Name of the tree must be given:
+  --> Name of the tree must be given in test macros:
       TString treeIdentity = "tracks";
 
   --> 4 branches are internally fixed:
