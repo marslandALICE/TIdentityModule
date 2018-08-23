@@ -55,6 +55,7 @@ void TIdentity2D::InitIden2D(Int_t size)
   fCountPartPos = 0;
 
   fUseSign = -1000;
+  fSeparateSign=kFALSE;
   fSign = -1000;
   fMyBinBrach = 0x0;
   fCountVeto = 0;
@@ -68,8 +69,7 @@ void TIdentity2D::InitIden2D(Int_t size)
   fW = new vector<double>[fTSize];
   fW2 = new vector<double>[fTSize];
   fWmixed = new vector<double>[fTSizeMixed];
-  if (!fFunctions)
-  fFunctions = new TIdentityFunctions();
+  if (!fFunctions) fFunctions = new TIdentityFunctions();
   fW_sum = new Double_t[fTSize];
   fPrevEvt = -1000;
   fAver = new Double_t[fTSize];
@@ -377,20 +377,20 @@ void TIdentity2D::Run()
 Bool_t TIdentity2D::GetEntry(Int_t i)
 {
   fTIdentityTree->GetEntry(i);
-  if (fMyBinBrach)
-  fEventNum = fEventNumOldVersion;
+  if (fMyBinBrach) fEventNum = fEventNumOldVersion;
+  if (fMyBinBrach && fSeparateSign) fMyDeDx = fMyDeDx*fSign; // treat particle and antiparticle separately
+
   if (fEventNum != fPrevEvtVeto && fPrevEvtVeto > 0)
   {
     fCountVeto++;
   }
   fPrevEvtVeto = fEventNum;
-  if (fDEdx != 0)
-  fMyDeDx = fDEdx;
-  if ((fMyDeDx < fMindEdx || fMyDeDx > fMaxdEdx) || fMyDeDx == 0)
-  return kFALSE;
+  if (fDEdx != 0) fMyDeDx = fDEdx;
+  if ((fMyDeDx < fMindEdx || fMyDeDx > fMaxdEdx) || fMyDeDx == 0) return kFALSE;
+  //
   // secure the usage of sign=0 which is sum of + and - particles
-  if (!(fSign == fUseSign || fUseSign == 0))
-  return kFALSE;
+  //
+  if (!(fSign == fUseSign || fUseSign == 0)) return kFALSE;
   return kTRUE;
 }
 
@@ -555,6 +555,7 @@ void TIdentity2D::GetBins(const Int_t nExtraBins, Double_t *bins)
     bins[1] = fMyBin[1];
     bins[2] = fMyBin[2];
     bins[3] = fSign;
+    bins[4] = fMyDeDx;
   }
 }
 

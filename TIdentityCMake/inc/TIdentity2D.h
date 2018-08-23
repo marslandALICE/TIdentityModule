@@ -54,6 +54,7 @@ public:
   void AddIntegrals(Int_t);
   void SetLimits(Float_t, Float_t, Double_t, Double_t, Int_t);
   void SetUseSign(Int_t _useSign) { fUseSign = _useSign; }
+  void SetSeparateSign(Bool_t _useSeparateSign) { fSeparateSign = _useSeparateSign; }
   void Reset();
   void SetBranchNames(const Int_t tmpNBranches, TString tmpBranchNameArr[])
   {
@@ -123,6 +124,7 @@ private:
   Int_t fCountVeto;
   Int_t fMyBin[3];
   Int_t fUseSign;
+  Bool_t fSeparateSign;
   Int_t fSign;
   Int_t fSize_size;
   Int_t fTSize;
