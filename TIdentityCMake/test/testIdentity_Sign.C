@@ -285,7 +285,7 @@ void RetrieveMoments(TIdentity2D *tidenObj)
   cout << " pion             : "<< momArray[kPi]   <<" int: "<< intArray[kPi]*nnorm << "  ratio: " << momArray[kPi]/(intArray[kPi]*nnorm) << endl;
   cout << " kaon             : "<< momArray[kKa]   <<" int: "<< intArray[kKa]*nnorm << "  ratio: " << momArray[kKa]/(intArray[kKa]*nnorm) << endl;
   cout << " proton           : "<< momArray[kPr]   <<" int: "<< intArray[kPr]*nnorm << "  ratio: " << momArray[kPr]/(intArray[kPr]*nnorm) << endl;
-  cout << " proton           : "<< momArray[kDe]   <<" int: "<< intArray[kDe]*nnorm << "  ratio: " << momArray[kDe]/(intArray[kDe]*nnorm) << endl;
+  cout << " deuteron         : "<< momArray[kDe]   <<" int: "<< intArray[kDe]*nnorm << "  ratio: " << momArray[kDe]/(intArray[kDe]*nnorm) << endl;
   cout << " electron2        : "<< momArray[kElEl]  <<endl;
   cout << " pion2            : "<< momArray[kPiPi]  <<endl;
   cout << " kaon2            : "<< momArray[kKaKa]  <<endl;
