@@ -28,18 +28,17 @@ Double_t  EvalFitValue(Int_t particle, Double_t x);
 
 //
 // ======= Modification Part =============================================================================
-const Int_t fnParticleBins       = 10;
-TString     treeIdentity         = "tracks";
-TString     lookUpCloneArrayName = "funcLineShapesCArr";
-const Int_t nBinsLineShape       = 1000;
-Int_t       fnTestEntries        = 0;
-Bool_t      lookUpTableForLine   = kFALSE;
-Int_t       lookUpTableLineMode  = 0;  // 0 for hist and 1 for func
+const Int_t fnParticleBins       = 10;                    // number of particles (particles+antiparticles)
+TString     treeIdentity         = "tracks";              // name of the input TTree
+TString     lookUpCloneArrayName = "funcLineShapesCArr";  // name of the lookup table which contains line shapes
+const Int_t nBinsLineShape       = 1000;                  // number of bins in case of the line shapes are used as histograms
+Int_t       fnTestEntries        = 0;                     // 0 for full sample processing and n>0 for testing
+Int_t       lookUpTableLineMode  = 0;                     // 0 for hist (faster but limited precision due to number of bins) and 1 for func
 //
 // fixed tree branches --> [0]=event; [1]=dEdx; [2]=sign; [3]=cutBit; ||||  [4]=cent;
-Double_t fTreeVariablesArray[5];
-const Int_t nBranches = 1;
-TString branchNames[nBranches]={"cent"};
+Double_t fTreeVariablesArray[5];                          // 4 default and + 2 extra branch
+const Int_t nBranches = 1;                                // number of extra branches
+TString branchNames[nBranches]={"cent"};                  // names of the extra branches
 // =======================================================================================================
 //
 // Inputs
