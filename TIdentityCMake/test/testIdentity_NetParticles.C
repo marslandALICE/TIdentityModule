@@ -36,7 +36,7 @@ Int_t       fnTestEntries        = 0;                     // 0 for full sample p
 Int_t       lookUpTableLineMode  = 0;                     // 0 for hist (faster but limited precision due to number of bins) and 1 for func
 //
 // fixed tree branches --> [0]=event; [1]=dEdx; [2]=sign; [3]=cutBit; ||||  [4]=cent;
-Double_t fTreeVariablesArray[5];                          // 4 default and + 2 extra branch
+Double_t fTreeVariablesArray[5];                          // 4 default and + 1 extra branch
 const Int_t nBranches = 1;                                // number of extra branches
 TString branchNames[nBranches]={"cent"};                  // names of the extra branches
 // =======================================================================================================
