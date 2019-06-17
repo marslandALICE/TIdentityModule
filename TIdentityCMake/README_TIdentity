@@ -8,6 +8,7 @@ How to Run TIdentity:
 
 3) Compile TIdentity code
    cd $TIdentityDIR
+   chmod +x cmakeTIdentity.sh
    ./cmakeTIdentity.sh
    * executables are created in $TIdentityDIR/bin
 
