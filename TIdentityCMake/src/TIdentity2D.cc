@@ -576,6 +576,14 @@ Double_t TIdentity2D::GetIntegralMix(Int_t i, Int_t j)
 
 void TIdentity2D::SetLimits(Float_t min, Float_t max, Double_t BW, Double_t nParticlesMax, Int_t wDistResol)
 {
+  // 
+  // min:  minimum value of dEdx
+  // max:  maximum value of dEdx
+  // BW:   number of bins in dEdx --> used to calculate binwidth in dEdx
+  // nParticlesMax: maximum number of particles --> used to define the debug histogram range of W quantities
+  // wDistResol:    value to define the resolution of W hists --> nParticlesMax * wDistResol gives the number of bins of W hists 
+  //
+  
   fMindEdx = min;
   fMaxdEdx = max;
   fDedxBinWidth = (max - min) / BW;
