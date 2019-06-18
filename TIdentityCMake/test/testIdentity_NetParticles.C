@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
   {
     // Read the entries and corresponding bins
     if( !iden4 ->  GetEntry(i) ) continue;
-    // reads identity tree and retrives mybin[] info
+    // reads identity tree and retrives tree branch info via fTreeVariablesArray[i], which allows for track or event selections 
     iden4 -> GetBins(nBranches, fTreeVariablesArray);
     //
     hDedxDebug->Fill(fTreeVariablesArray[1]);
