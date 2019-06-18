@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
   iden4 -> SetFileName(fileNameDataTree);
   iden4 -> SetBranchNames(nBranches,branchNames);
   iden4 -> SetFunctionPointers(EvalFitValue);
-  iden4 -> SetLimits(0.,50.,1500.,30.,50); // --> (dEdxMin,dEdxMax,nBinsUsed in dEdx), if slice histograms are scaled wrt binwidth, then binwidth=1
+  iden4 -> SetLimits(0.,50.,1500.,30.,50); // --> (dEdxMin,dEdxMax,nBinsUsed in dEdx) further documentation in TIdentity2D.cc
   iden4 -> SetUseSign(fUsedSign);          // pass input sign value to TIdentity module
   Long_t nEntries;
   iden4 -> GetTree(nEntries,treeIdentity);
