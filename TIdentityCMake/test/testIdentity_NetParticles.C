@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
   fileNameDataTree   = inputfileNameDataTree;
   fileNameLineShapes = inputfileNameLineShapes;
   //
-  // Initialize objects and get the bin information
+  // Initialize objects 
   TROOT IdentityMethod("IdentityMethod","compiled identity method");
   ReadFitParamsFromLineShapes(fileNameLineShapes);
   //
@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
   iden4 -> SetFileName(fileNameDataTree);
   iden4 -> SetBranchNames(nBranches,branchNames);
   iden4 -> SetFunctionPointers(EvalFitValue);
-  iden4 -> SetLimits(-50.,50.,3000.,30.,50); // --> (dEdxMin,dEdxMax,nBinsUsed in dEdx), if slice histograms are scaled wrt binwidth, then binwidth=1
-  iden4 -> SetUseSign(0);  // pass input sign value to TIdentity module --> in case of net-particles it is set to 0
+  iden4 -> SetLimits(-50.,50.,3000.,30.,50); // --> (dEdxMin,dEdxMax,nBinsUsed in dEdx) further documentation in TIdentity2D.cc
+  iden4 -> SetUseSign(0);                    // pass input sign value to TIdentity module --> in case of net-particles it is set to 0
   Long_t nEntries;
   iden4 -> GetTree(nEntries,treeIdentity);
   iden4 -> Reset();
