@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
   for( Int_t i = 0; i < nEntries; i++ )
   {
     //
-    // Read the entries and corresponding bins
+    // reads identity tree and retrives tree branch info via fTreeVariablesArray[i], which allows for track or event selections
     if( !iden4 ->  GetEntry(i) ) continue;
     iden4 -> GetBins(nBranches, fTreeVariablesArray);    // reads identity tree and retrives binned info
     //
