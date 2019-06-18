@@ -41,8 +41,8 @@ TString branchNames[nBranches]={"cent"};                    // names of the extr
 // =======================================================================================================
 //
 // Inputs
-Char_t  inputfileNameDataTree[255];     //file name of tree
-Char_t  inputfileNameLineShapes[255];   // file name for fit function
+Char_t  inputfileNameDataTree[255];     
+Char_t  inputfileNameLineShapes[255];   
 TString fileNameDataTree = "";
 TString fileNameLineShapes = "";
 // =======================================================================================================
@@ -99,12 +99,12 @@ int main(int argc, char *argv[])
   ReadFitParamsFromLineShapes(fileNameLineShapes);
   //
   // Create the TIdentity2D object and start analysis
-  TIdentity2D *iden4 = new TIdentity2D(fNParticles);      // Set the number of particles to 4
+  TIdentity2D *iden4 = new TIdentity2D(fNParticles);      
   iden4 -> SetFileName(fileNameDataTree);
   iden4 -> SetBranchNames(nBranches,branchNames);
   iden4 -> SetFunctionPointers(EvalFitValue);
   iden4 -> SetLimits(0.,50.,1500.,30.,50); // --> (dEdxMin,dEdxMax,nBinsUsed in dEdx), if slice histograms are scaled wrt binwidth, then binwidth=1
-  iden4 -> SetUseSign(fUsedSign);  // pass input sign value to TIdentity module
+  iden4 -> SetUseSign(fUsedSign);          // pass input sign value to TIdentity module
   Long_t nEntries;
   iden4 -> GetTree(nEntries,treeIdentity);
   iden4 -> Reset();
