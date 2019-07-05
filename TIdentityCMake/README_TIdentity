@@ -3,8 +3,9 @@ How to Run TIdentity:
 1) Download TIdentity module
    git clone https://github.com/marslandALICE/TIdentityModule.git
 
-2) Set TIdentity environment by adding the following line into your ~/.bashrc
-   export TIdentityDIR=/Users/marsland/Desktop/TIdentityCMake
+2) Export "TIdentity" environment 
+   cd TIdentityCMake
+   export TIdentityDIR=$(pwd)
 
 3) Compile TIdentity code
    cd $TIdentityDIR
