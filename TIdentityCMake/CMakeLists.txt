@@ -1,4 +1,4 @@
-
+cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 FIND_PACKAGE(ROOT REQUIRED COMPONENTS MathCore RIO Hist Tree Net Matrix)
 if ( NOT ROOT_FOUND )
 message(FATAL_ERROR "ROOT is required but missing !")
