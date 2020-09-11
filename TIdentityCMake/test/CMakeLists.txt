@@ -1,5 +1,5 @@
 
-FIND_PACKAGE( ROOT REQUIRED COMPONENTS MathMore )
+FIND_PACKAGE( ROOT )
 if ( NOT ROOT_FOUND )
 message(FATAL_ERROR "ROOT is required but missing !")
 endif ( NOT ROOT_FOUND )
